@@ -15,8 +15,10 @@ public class Qubo implements Problem{
 		double result = 0.0;
 		for (int i=0; i < binaryString.getChromosome().length; i++) {
 			List<Double> curr_row = q.get(i); 
-			for (int j=0; j < binaryString.getChromosome().length; j++) {
-				result += curr_row.get(j)*binaryString.getChromosome()[i];
+			if (binaryString.getChromosome()[i] != 0){
+				for (int j=0; j < binaryString.getChromosome().length; j++) {
+					result += curr_row.get(j)*binaryString.getChromosome()[j];
+				}
 			}
 		}
 		return result;
